@@ -1,0 +1,10 @@
+[
+  {
+    "topic": "climate",
+    "targets": ["influxdb", "wunderground"]
+  },
+  {
+    "topic": "sousvide",
+    "targets": ["influxdb"]
+  }
+]

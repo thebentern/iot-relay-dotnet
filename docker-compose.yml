@@ -1,0 +1,41 @@
+version: '3.2'
+services:
+  weather-station-reporter:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    image: result/latest
+  influxdb:
+    build: influxdb
+    restart: unless-stopped
+    ports:
+      - "8083:8083"
+      - "8086:8086"
+      - "8090:8090"
+    env_file: .env
+    volumes:
+      - /srv/docker/influxdb/data:/var/lib/
+  grafana:
+    build: grafana
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file: .env
+    user: '0'
+    volumes:
+      - /srv/docker/grafana/data:/var/lib/grafana
+  mosquitto:
+    restart: unless-stopped
+    ports:
+        - '1883:1883'
+        - '9001:9001'
+    # volumes:
+    #     - '/srv/mqtt/config:/mqtt/config:ro'
+    #     - '/srv/mqtt/log:/mqtt/log'
+    #     - '/srv/mqtt/data/:/mqtt/data/'
+    image: toke/mosquitto
+
+volumes:
+  grafana_data: {}
+  influxdb_data: {}
