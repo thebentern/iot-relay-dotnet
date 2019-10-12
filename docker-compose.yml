@@ -1,6 +1,6 @@
 version: '3.2'
 services:
-  weather-station-reporter:
+  iot-relay-service:
     build:
       context: ./
       dockerfile: Dockerfile
