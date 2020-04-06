@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace IotRelay.Service
+namespace IotRelay.Service.Models
 {
     public class WeatherStationReport
     {

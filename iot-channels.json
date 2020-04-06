@@ -1,7 +1,7 @@
 [
   {
     "topic": "climate",
-    "targets": ["influxdb", "wunderground"]
+    "targets": ["influxdb"] //, "wunderground"]
   },
   {
     "topic": "sousvide",

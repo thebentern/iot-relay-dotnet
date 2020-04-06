@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
+using IotRelay.Service.Models;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Polly;

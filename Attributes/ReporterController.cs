@@ -7,7 +7,7 @@ using Microsoft.Extensions.Logging;
 
 namespace IotRelay.Service
 {
-    internal class ReporterController : Attribute
+    internal class ReporterController
     {
         public ReporterController(ILogger logger)
         {
