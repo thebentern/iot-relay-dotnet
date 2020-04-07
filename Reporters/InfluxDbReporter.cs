@@ -29,13 +29,13 @@ namespace IotRelay.Service.Reporters
             };
 
             var jsonPayload = JObject.Parse(json);
-            foreach (var property in jsonPayload.Children().Cast<JProperty>()) 
+            foreach (var token in jsonPayload) 
             {
                 try 
                 {
-                    var fieldValue = Double.TryParse(property.Value<string>(), out var parsed) ? (double?)parsed : null;
-                    _logger.LogInformation($"Metric: {property.Name}. Value: {fieldValue}");
-                    metric.Fields.Add(property.Name, new InfluxValueField(fieldValue));
+                    var fieldValue = Double.TryParse(token.Value.ToString(), out var parsed) ? (double?)parsed : null;
+                    _logger.LogInformation($"Metric: {token.Key}. Value: {fieldValue}");
+                    metric.Fields.Add(token.Key, new InfluxValueField(fieldValue));
                 }
                 catch 
                 {
