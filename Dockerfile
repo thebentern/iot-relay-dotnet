@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine
+FROM mcr.microsoft.com/dotnet/core/sdk:3.1-alpine as build
 WORKDIR /app
 
 # copy csproj and restore as distinct layers
@@ -11,5 +11,5 @@ RUN dotnet publish -c Release -o out
 
 # Copy build output to runtime container
 FROM mcr.microsoft.com/dotnet/core/runtime:3.1-alpine AS runtime
-COPY --from=build /output .
+COPY --from=build /app/output .
 ENTRYPOINT ["dotnet", "out/IotRelay.Service.dll"]
