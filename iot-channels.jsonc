@@ -6,5 +6,9 @@
   {
     "topic": "/sousvide",
     "targets": ["influxdb"]
+  },
+  {
+    "topic": "/office",
+    "targets": ["influxdb"]
   }
 ]
