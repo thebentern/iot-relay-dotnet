@@ -30,7 +30,7 @@ namespace IotRelay.Service
         {
             _logger.LogInformation($"{nameof(IotRelayService)} is starting.");
             
-            _iotChannels = JsonConvert.DeserializeObject<IEnumerable<IotChannel>>(await File.ReadAllTextAsync("./iot-channels.json"));
+            _iotChannels = JsonConvert.DeserializeObject<IEnumerable<IotChannel>>(await File.ReadAllTextAsync("./iot-channels.jsonc"));
 
             DotNetEnv.Env.Load();
             IMqttClient mqttClient = CreateMqttClient();
