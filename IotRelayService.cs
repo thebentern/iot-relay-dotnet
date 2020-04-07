@@ -38,6 +38,7 @@ namespace IotRelay.Service
 
             SetupMqttConnection(mqttClient);
             SetupMqttDisconnection(mqttClient, options);
+            mqttClient.ApplicationMessageReceived += OnMessageReceived;
             await mqttClient.ConnectAsync(options);
         }
 
