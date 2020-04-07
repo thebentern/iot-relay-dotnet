@@ -25,7 +25,7 @@ namespace IotRelay.Service.Reporters
             {
                 UtcTimestamp = DateTime.UtcNow,
                 Precision = TimePrecision.Seconds,
-                MeasurementName = topic
+                MeasurementName = topic.Replace("/", String.Empty)
             };
 
             var jsonPayload = JObject.Parse(json);
