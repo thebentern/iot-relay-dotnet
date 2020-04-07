@@ -22,6 +22,9 @@
     <Content Include="*.jsonc">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>  
+    <Content Include="*.env">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>  
   </ItemGroup>
 
 </Project>
