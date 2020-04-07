@@ -28,12 +28,13 @@ namespace IotRelay.Service.Reporters
                 MeasurementName = topic
             };
 
-            var jsonPayload =  JObject.Parse(json);
+            var jsonPayload = JObject.Parse(json);
             foreach (var property in jsonPayload.Children().Cast<JProperty>()) 
             {
                 try 
                 {
-                    var fieldValue= Double.TryParse(property.Value<string>(), out var parsed) ? (double?)parsed : null;
+                    var fieldValue = Double.TryParse(property.Value<string>(), out var parsed) ? (double?)parsed : null;
+                    _logger.LogInformation($"Metric: {property.Name}. Value: {fieldValue}");
                     metric.Fields.Add(property.Name, new InfluxValueField(fieldValue));
                 }
                 catch 
