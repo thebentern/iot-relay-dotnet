@@ -18,4 +18,10 @@
     <PackageReference Include="polly" Version="7.1.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Include="*.jsonc">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>  
+  </ItemGroup>
+
 </Project>
