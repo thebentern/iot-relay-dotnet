@@ -10,5 +10,37 @@
   {
     "topic": "/office",
     "targets": ["influxdb"]
+  },
+  {
+    "topic": "/attic",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/garage",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/kitchen",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/dining_room",
+    "targets": ["influxdb"]
+  }
+  {
+    "topic": "/peter_bedroom",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/isaac_bedroom",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/master_bedroom",
+    "targets": ["influxdb"]
+  },
+  {
+    "topic": "/living_room",
+    "targets": ["influxdb"]
   }
 ]
