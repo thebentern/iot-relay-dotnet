@@ -10,9 +10,9 @@ services:
     build: influxdb
     restart: unless-stopped
     ports:
-      - "8083:8083"
-      - "8086:8086"
-      - "8090:8090"
+      - '8083:8083'
+      - '8086:8086'
+      - '8090:8090'
     env_file: .env
     volumes:
       - /srv/docker/influxdb/data:/var/lib/
@@ -20,7 +20,7 @@ services:
     build: grafana
     restart: unless-stopped
     ports:
-      - "3000:3000"
+      - '3000:3000'
     env_file: .env
     user: '0'
     volumes:
@@ -35,7 +35,16 @@ services:
     #     - '/srv/mqtt/log:/mqtt/log'
     #     - '/srv/mqtt/data/:/mqtt/data/'
     image: toke/mosquitto
+  node-red:
+    image: nodered/node-red:latest
+    environment:
+      - TZ=America/Chicago
+    ports:
+      - '1880:1880'
+    volumes:
+      - node_red_data
 
 volumes:
   grafana_data: {}
   influxdb_data: {}
+  node_red_data: {}
